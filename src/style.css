@@ -54,7 +54,6 @@ hr {
 }
 .icons img {
   width: 25px;
-  cursor: pointer;
   padding: 0 5px;
 }
 #input-task {
@@ -66,4 +65,15 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.btn-list {
+  border: none;
+  background-color: inherit;
+}
+.list-group-item {
+  background-color: #f9d6d6;
+}
+.list-group-item-success {
+  color: #0f5132;
+  background-color: #d1e7dd;
 }

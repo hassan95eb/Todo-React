@@ -1,52 +1,23 @@
-import React from "react";
-import del from "./images/delete-icon.svg";
-import x from "./images/red-x-line-icon.svg";
-import tick from "./images/tick-mark-icon.svg";
+import React, { useState } from "react";
+import Forms from "./Components/Forms";
+import Items from "./Components/Items";
+import taskContext from "./TaskContext";
+
 export default function Main() {
+  const [task, setTask] = useState([
+    // { id: 1, title: "Object1", done: true },
+    // { id: 2, title: "Object2", done: false },
+  ]);
+  // console.log(task);
   return (
     <div className="container">
       <div className="d-flex justify-content-center align-items-center">
         <div className="main px-2">
-          <h1 className="h2 text-center py-1">Todo</h1>
-          <form className="form-todo d-flex justify-content-between py-2">
-            <input
-              type="text"
-              className="rounded"
-              name="input task"
-              id="input-task"
-              placeholder=" Write there..."
-            />
-            <button type="submit" className="px-2 mx-2 btn btn-outline-info">
-              Add
-            </button>
-          </form>
-          <hr className="mx-2" />
-          <ul className="list-group">
-            <li className="list-group-items d-flex justify-content-between rounded ">
-              <h3 className="list-item-title h5">Object1</h3>
-              <div className="icons">
-                <img src={tick} alt="done" />
-                <img src={x} alt="undone" />
-                <img src={del} alt="delete" />
-              </div>
-            </li>
-            <li className="list-group-items d-flex justify-content-between rounded  list-group-item-success">
-              <h3 className="list-item-title h5">Object2</h3>
-              <div className="icons">
-                <img src={tick} alt="done" />
-                <img src={x} alt="undone" />
-                <img src={del} alt="delete" />
-              </div>
-            </li>
-            <li className="list-group-items d-flex justify-content-between rounded ">
-              <h3 className="list-item-title h5">Object3</h3>
-              <div className="icons">
-                <img src={tick} alt="done" />
-                <img src={x} alt="undone" />
-                <img src={del} alt="delete" />
-              </div>
-            </li>
-          </ul>
+          <taskContext.Provider value={{ task: task, setTask: setTask }}>
+            <Forms />
+            <hr className="mx-2" />
+            <Items />
+          </taskContext.Provider>
         </div>
       </div>
     </div>
